@@ -33,11 +33,13 @@ var testString3 = "sandiego"
 
 // 4a. Write a function called alphabetSoup that takes one argument and returns a string with all the letters in alphabetical order. Use each of the varibales as test cases. Expected output: "aelnr" "aacdemy" "adeginos"
 
-
+const alphabetSoup  = word => word.split('').sort().join('')
+console.log(alphabetSoup(testString1))
 
 // 4b. Write a function that takes in all three variables and returns a string with all the letters in alphabetical order. Expected output: "aaaacddeeegilmnnorsy"
 
-
+const multiAlphabetSoup = (...args) => alphabetSoup(args.join(''))
+console.log(multiAlphabetSoup(testString1,testString2,testString3))
 
 // ------------------------------------- Consider the variables:
 var amounts = [9, 1, 8, 16, 5, 1, 42]
@@ -45,6 +47,9 @@ var animals = ["ducks", "elephants", "pangolins", "zebras", "giraffes", "penguin
 
 // 5a. Write a function that takes the two variables and returns a combined string. Expected output: "9 ducks 1 elephants 8 pangolins 16 zebras 5 giraffes 1 penguins 42 llamas"
 
-
+const combinedArrInToString = (arr1, arr2) => arr1.map((word, index) => word + ' ' + arr2[index]).join(' ')
 
 // 5b. STRETCH: Create a function that combines the two variables and updates the animal to be singular if the animal's corresponding number is 1. Expected output: "9 ducks 1 elephant 8 pangolins 16 zebras 5 giraffes 1 penguin 42 llamas"
+const combinedArrInToStringDropTheS = (arr1, arr2) => arr1.map((word, index) => word === 1 ? word + ' ' + arr2[index].slice(0,-1) : word + ' ' + arr2[index]).join(' ')
+
+console.log(combinedArrInToStringDropTheS(amounts, animals))
